@@ -71,7 +71,6 @@ def serve(reader, writer):
             global new_color_rgb
             new_color_rgb = hexatorgb(new_color)
             new_color = rgbtohexa(new_color_rgb)
-#             await(animate_color(color))
         await writer.awrite("HTTP/1.0 200 OK\r\n\r\n"+web_page(new_color)+"\r\n")
     except OSError as e:
         pass
