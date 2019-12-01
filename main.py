@@ -49,16 +49,6 @@ def hexatorgb(hexa: str):
     lv = len(hexa)
     return list((int(hexa[i:i + lv // 3], 16) for i in range(0, lv, lv // 3)))
 
-async def animate_color(color):
-    sign = lambda a: (a>0) - (a<0)
-    global current_color_rgb
-    while color != current_color_rgb:
-        current_color_rgb = [color + sign(new_color-color)
-                          for color, new_color in zip(current_color_rgb, color)]
-        print(current_color_rgb)
-        setcolor(current_color_rgb)
-        await  asyncio.sleep(0.01)
-
 async def adjust_color():
     sign = lambda a: (a>0) - (a<0)
     global current_color_rgb
